@@ -1,0 +1,23 @@
+---
+- hosts: vagrant-test
+  remote_user: ubuntu
+  become: yes
+  roles:
+    - software-upgrade
+    - software-install-monitoring
+    - software-install-archivers
+    - software-install-ubuntu-drivers
+    - software-install-filesystems
+    - software-install-network-utils
+    - software-install-git
+    - software-install-general
+    - software-install-dev
+    - software-install-desktop
+    - software-install-chromium
+    - software-install-docker
+    - software-install-virtualbox
+    - software-install-pbis-open
+    - software-install-wine
+    - software-install-sublime-text
+    - software-install-master-pdf-editor
+    - software-install-telegram

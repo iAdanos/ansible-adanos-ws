@@ -1,0 +1,22 @@
+---
+
+- name: download Telegram
+  get_url:
+          url: https://tdesktop.com/linux
+          dest: /tmp/telegram.tar.xz
+
+- name: install
+  shell: "tar xaf /tmp/telegram.tar.xz -C /opt/"
+
+- name: remove archive file
+  file:
+       path: /tmp/telegram.tar.xz
+       state: absent
+
+- name: set permissions
+  file:
+       path: /opt/Telegram
+       owner: root
+       group: sudo
+       recurse: yes
+       mode: 0774

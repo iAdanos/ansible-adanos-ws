@@ -1,0 +1,21 @@
+---
+
+- name: add docker repository apt key
+  apt_key:
+          keyserver: hkp://p80.pool.sks-keyservers.net:80
+          id: 58118E89F3A912897C070ADBF76221572C52609D
+  when: ansible_os_family == "Debian"
+
+- name: create apt source list for docker
+  template:
+    src: ../templates/docker.list
+    dest: /etc/apt/sources.list.d/docker.list
+    mode: 0644
+  when: ansible_distribution_release == "xenial"
+
+- name: install docker
+  apt:
+      name=docker-engine
+      state=installed
+      update_cache=yes
+  when: ansible_os_family == "Debian"

@@ -1,0 +1,22 @@
+---
+
+packages:
+- gksu
+- retext
+- doublecmd-gtk
+- doublecmd-help-ru
+- gsmartcontrol
+- psensor
+- pidgin
+- gimp
+- gimp-help-ru
+- gimp-data-extras
+- vlc
+- gparted
+- xtightvncviewer
+- brasero
+- corebird
+- wkhtmltopdf
+- gir1.2-webkit-3.0
+- libreoffice
+- remmina

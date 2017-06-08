@@ -1,0 +1,11 @@
+---
+
+- name: checking ubuntu-drivers is installed
+  package: 
+          name=ubuntu-drivers-common
+          state=installed
+  when: ansible_distribution == "Ubuntu"
+
+- name: installing drivers
+  shell: ubuntu-drivers autoinstall
+  when: ansible_distribution == "Ubuntu"

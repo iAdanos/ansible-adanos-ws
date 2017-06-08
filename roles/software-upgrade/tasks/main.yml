@@ -1,0 +1,18 @@
+# -----
+# Role upgrades all installed packages
+# -----
+---
+
+ # "apt: upgrade=full" will not work without aptitude
+ - name: checking aptitude package manager installation
+   apt:
+       name=aptitude
+       state=installed
+       update_cache=yes
+   when: ansible_os_family == "Debian"
+
+ - name: preforming system upgrade
+   apt:
+       update_cache=yes
+       upgrade=full
+   when: ansible_os_family == "Debian"

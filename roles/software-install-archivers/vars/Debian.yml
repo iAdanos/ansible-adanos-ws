@@ -1,0 +1,13 @@
+---
+
+packages:
+- tar
+- gzip
+- bzip2
+- rar
+- arj
+- zip
+- xz-utils
+- p7zip
+- p7zip-full
+- p7zip-rar

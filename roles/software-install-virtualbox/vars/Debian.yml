@@ -1,0 +1,6 @@
+---
+
+packages:
+- virtualbox
+- virtualbox-dkms
+- virtualbox-guest-utils

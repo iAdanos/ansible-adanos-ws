@@ -1,0 +1,12 @@
+---
+
+packages:
+- arping 
+- nmap
+- iperf
+- netcat
+- slurm
+- tcpdump
+- ntpdate
+- curl
+- wget

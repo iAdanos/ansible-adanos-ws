@@ -1,0 +1,1 @@
+cp /opt/sublime_text/License.sublime_license ~/.config/sublime-text-3/Local/

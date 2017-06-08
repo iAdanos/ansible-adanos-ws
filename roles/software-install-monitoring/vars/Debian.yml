@@ -1,0 +1,12 @@
+---
+
+packages:
+- lm-sensors
+- fancontrol
+- nmon
+- ncdu
+- dstat
+- htop
+- atop
+- dstat
+- iotop

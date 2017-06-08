@@ -1,0 +1,12 @@
+---
+
+packages:
+- e2fsprogs
+- hfsprogs
+- cramfsprogs
+- xfsprogs
+- reiserfsprogs
+- reiser4progs
+- jfsutils
+- davfs2
+- sshfs

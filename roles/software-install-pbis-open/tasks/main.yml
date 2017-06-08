@@ -1,0 +1,38 @@
+---
+
+- name: download repository apt key
+  get_url:
+          url: http://repo.pbis.beyondtrust.com/apt/RPM-GPG-KEY-pbis
+          dest: ~/RPM-GPG-KEY-pbis
+  when: ansible_os_family == "Debian"
+
+- name: add repository apt key
+  apt_key:
+          file: ~/RPM-GPG-KEY-pbis
+          state: present
+  when: ansible_os_family == "Debian"
+
+- name: create apt source list
+  get_url:
+          url: http://repo.pbis.beyondtrust.com/apt/pbiso.list
+          dest: /etc/apt/sources.list.d/pbiso.list
+  when: ansible_os_family == "Debian"
+
+- name: install pbis-open
+  apt:
+      name=pbis-open
+      state=installed
+      update_cache=yes
+  when: ansible_os_family == "Debian"
+
+- name: install pbis-open-gui
+  apt:
+      name=pbis-open-gui
+      state=installed
+  when: ansible_os_family == "Debian"
+
+- name: remove apt key temp file
+  file:
+       path: ~/RPM-GPG-KEY-pbis
+       state: absent
+  

@@ -1,0 +1,42 @@
+---
+
+- name: allow packages for i386 architecture
+  shell: dpkg --add-architecture i386
+  when: ansible_os_family == "Debian"
+
+- name: download repository apt key
+  get_url:
+          url: https://dl.winehq.org/wine-builds/Release.key
+          dest: ~/Release.key
+  when: ansible_os_family == "Debian"
+
+- name: add repository apt key
+  apt_key:
+          file: ~/Release.key
+          state: present
+  when: ansible_os_family == "Debian"
+
+- name: add apt repository
+  apt_repository:
+                 repo: deb https://dl.winehq.org/wine-builds/ubuntu/ {{ ansible_distribution_release }} main
+                 state: present
+  when: ansible_os_family == "Debian"
+
+- name: install wine
+  apt:
+      name=winehq-stable
+      state=installed
+      update_cache=yes
+      install_recommends=yes
+  when: ansible_os_family == "Debian"
+
+- name: install winetricks
+  apt:
+      name=winetricks
+      state=installed
+  when: ansible_os_family == "Debian"
+
+- name: remove apt key temp file
+  file:
+       path: ~/Release.key
+       state: absent

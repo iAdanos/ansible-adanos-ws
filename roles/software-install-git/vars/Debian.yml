@@ -1,0 +1,8 @@
+---
+
+packages:
+- git
+- git-doc
+- git-gui
+- gitk
+- git-svn
